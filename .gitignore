@@ -1,0 +1,6 @@
+local.settings.json
+.dockerignore
+.funcignore
+.python_packages/
+.venv/
+.vscode/
