@@ -30,6 +30,13 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3  # Or any Docker setup action
+
+      # Optional: Ensure Docker daemon is ready
+      - name: Verify Docker
+        run: docker info
+
       - name: Install Azure Functions Core Tools
         run: |
           curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -55,4 +62,5 @@ jobs:
       - name: Deploy to Azure Functions using Core Tools
         run: |
           func azure functionapp publish flextest5601pyfa2 --python --build-native-deps --no-build
+
 
