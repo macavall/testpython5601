@@ -14,10 +14,6 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'  # Path to your function app project
   PYTHON_VERSION: '3.12'               # Python version to use
 
-variables:
-  system.debug: true
-  agent.diagnostic: true
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -59,3 +55,4 @@ jobs:
       - name: Deploy to Azure Functions using Core Tools
         run: |
           func azure functionapp publish flextest5601pyfa2 --python --build-native-deps --no-build
+
